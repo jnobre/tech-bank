@@ -4,10 +4,13 @@ server:
 spring:
   data:
     mongodb:
-      uri: mongoURI
+      uri: #connection
       database: bankAccount
   kafka:
     producer:
       bootstrap-servers: localhost:9092
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher

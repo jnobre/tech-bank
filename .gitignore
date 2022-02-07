@@ -34,3 +34,5 @@ target/
 *.zip
 *.tar.gz
 *.rar
+
+bank-account/account.cmd/src/main/resources/application.yml

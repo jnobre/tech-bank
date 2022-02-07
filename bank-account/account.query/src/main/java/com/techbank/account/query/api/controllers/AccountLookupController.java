@@ -8,6 +8,7 @@ import com.techbank.account.query.api.queries.FindAccountWithBalanceQuery;
 import com.techbank.account.query.api.queries.FindAllAccountsQuery;
 import com.techbank.account.query.domain.BankAccount;
 import com.techbank.cqrs.core.infrastructure.QueryDispatcher;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +24,7 @@ import java.util.logging.Logger;
 
 @RestController
 @RequestMapping(path = "/api/v1/bankAccountLookup")
+@Api(value = "API responsible for query information about the bank's accounts", produces = "application/json")
 public class AccountLookupController {
     private final Logger logger = Logger.getLogger(AccountLookupController.class.getName());
 

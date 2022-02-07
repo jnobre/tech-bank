@@ -4,6 +4,7 @@ import com.techbank.account.cmd.api.commands.WithdrawFundsCommand;
 import com.techbank.account.common.dtos.BaseResponse;
 import com.techbank.cqrs.core.exceptions.AggregateNotFoundException;
 import com.techbank.cqrs.core.infrastructure.CommandDispatcher;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,7 @@ import java.util.logging.Logger;
 
 @RestController
 @RequestMapping(path = "/api/v1/withdrawFunds")
+@Api(value = "API for creating a bank account close command", produces = "application/json")
 public class WithdrawFundsController {
     private final Logger logger = Logger.getLogger(WithdrawFundsController.class.getName());
 

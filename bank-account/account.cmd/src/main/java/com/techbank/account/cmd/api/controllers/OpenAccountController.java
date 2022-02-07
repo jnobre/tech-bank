@@ -4,6 +4,8 @@ import com.techbank.account.cmd.api.commands.OpenAccountCommand;
 import com.techbank.account.cmd.api.dto.OpenAccountResponse;
 import com.techbank.account.common.dtos.BaseResponse;
 import com.techbank.cqrs.core.infrastructure.CommandDispatcher;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,12 +21,14 @@ import java.util.logging.Logger;
 
 @RestController
 @RequestMapping(path = "/api/v1/openBankAccount")
+@Api(value = "API for creating a bank account open command", produces = "application/json")
 public class OpenAccountController {
     private final Logger logger = Logger.getLogger(OpenAccountController.class.getName());
 
     @Autowired
     private CommandDispatcher commandDispatcher;
 
+    @ApiOperation(value = "Open Account", produces = "application/json")
     @PostMapping
     public ResponseEntity<BaseResponse> openAccount(@RequestBody OpenAccountCommand command) {
         var id = UUID.randomUUID().toString();
